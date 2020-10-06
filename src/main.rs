@@ -13,13 +13,9 @@ pub extern "C" fn _start() -> ! {
 
     resox::init();
 
-    // Trigger breakpoint exception
-    x86_64::instructions::interrupts::int3();
-
     #[cfg(test)]
     test_main();
-
-    println!("Did not crash");
+    
     loop {}
 }
 
