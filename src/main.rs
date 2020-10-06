@@ -11,9 +11,15 @@ use resox::println;
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
 
+    resox::init();
+
+    // Trigger breakpoint exception
+    x86_64::instructions::interrupts::int3();
+
     #[cfg(test)]
     test_main();
 
+    println!("Did not crash");
     loop {}
 }
 
