@@ -5,18 +5,19 @@
 #![reexport_test_harness_main = "test_main"]
 #![feature(abi_x86_interrupt)]
 #![feature(alloc_error_handler)]
+#![feature(wake_trait)]
 
 use core::panic::PanicInfo;
 
 extern crate alloc;
 
+pub mod allocator;
 pub mod gdt;
 pub mod interrupts;
 pub mod memory;
 pub mod serial;
-pub mod vga_buffer;
-pub mod allocator;
 pub mod task;
+pub mod vga_buffer;
 
 #[cfg(test)]
 use bootloader::{entry_point, BootInfo};
