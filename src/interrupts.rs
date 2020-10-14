@@ -9,7 +9,6 @@ use spin;
 
 use crate::println;
 use crate::gdt;
-use crate::print;
 use crate::hlt_loop;
 
 pub const PIC_1_OFFSET: u8 = 32;
